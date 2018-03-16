@@ -289,7 +289,8 @@ Why not use @racket[map] on our friend @racket[toaster]?
 @section{Building a snowman}
 
 Now we know enough things to build a snowman.
-Open a new file in DrRacket named "snowman.rkt".
+Open a new file in DrRacket and @racketidfont{Save Definitions As...}
+"snowman.rkt".
 Make sure your definition includes the following, and then click run:
 
 @codeblock|{
