@@ -33,6 +33,7 @@
 @;;; =============
 
 @title{Fun in the snow with Racket}
+@author{Christopher Lemmer Webber}
 
 This tutorial introduces some basics of programming in Racket and then
 guides the user through making a snowman.
