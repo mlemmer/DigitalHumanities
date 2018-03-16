@@ -560,15 +560,15 @@ Let's move @racket{make-arm} to the definitions area and define our
 the @racket[body]:
 
 @codeblock|{
-  (define (make-arm rotate-amount)
-    (colorize (text "Y" '(bold) 30 (* pi rotate-amount))
-              "brown"))
+(define (make-arm rotate-amount)
+  (colorize (text "Y" '(bold) 30 (* pi rotate-amount))
+            "brown"))
 
-  (define left-arm
-    (make-arm .5))
+(define left-arm
+  (make-arm .5))
 
-  (define right-arm
-    (make-arm -.5))}|
+(define right-arm
+  (make-arm -.5))}|
 
 @(examples
   #:eval my-evaluator
