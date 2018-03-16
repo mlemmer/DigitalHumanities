@@ -644,3 +644,46 @@ Horray!  It works!
   You could even build a function that lets you customize the postcard's
   message!}
 
+At this point your code should look something like this:
+
+@codeblock|{
+#lang racket
+(require pict)
+
+;; Makes a snowball
+(define (snowball size)
+  (disk size #:color "white"))
+
+;; Snowman components
+(define head
+  (cc-superimpose
+    (snowball 50)
+    (text ":^)" '(bold) 20 (* pi -.5))))
+
+(define (make-arm rotate-amount)
+  (colorize (text "Y" '(bold) 30 (* pi rotate-amount))
+            "brown"))
+
+(define left-arm
+  (make-arm .5))
+
+(define right-arm
+  (make-arm -.5))
+
+(define body
+  ;; append the left arm, torso, and right arm horizontally
+  (hc-append
+    left-arm
+    ;; make a snowball for the torso and put buttons on it
+    (cc-superimpose
+      (snowball 65)
+      ;; asterisks are acceptable buttons, right?
+      (text "* * *" '(bold) 20 (* pi -.5)))
+    right-arm))
+
+(define butt
+  (snowball 80))
+
+;; Putting it all together
+(define snowman
+  (vc-append head body butt))}|
