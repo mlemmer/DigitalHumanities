@@ -1,3 +1,13 @@
 *.pdf
 *.html
 *~
+/manual-fonts.css
+/manual-racket.css
+/manual-racket.js
+/manual-style.css
+pict*.png
+/scribble-common.js
+/scribble-style.css
+/scribble.css
+/racket.css
+/footnote.css
