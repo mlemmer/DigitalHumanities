@@ -10,11 +10,7 @@
           scribble/manual
           teachpack/2htdp/scribblings/img-eval
           (for-label racket
-                     racket/gui/base
-                     racket/class
-                     slideshow pict
-                     slideshow/code
-                     pict/flash)
+                     pict pict/flash)
           (for-syntax racket/base))
 
 @(define my-evaluator
@@ -69,7 +65,7 @@ look like this:
 
 @(examples #:eval my-evaluator
            #:hidden #t
-           (require pict))
+           (require pict racket))
 
 Now click "run", switch to the "interactions" section (the "playground")
 and try running the following:
@@ -274,9 +270,176 @@ But first we should cover one more datastructure in Racket... lists!
 
 @interact[(list "bread" "bagel" "sub")]
 
+We can slice and dice lists with @racket[first], which pulls the first
+item off a list, and @racket[rest], which returns the rest of the list:
+
+@interact[
+  (first (list "bread" "bagel" "sub"))
+  (rest (list "bread" "bagel" "sub"))
+  (first (rest (list "bread" "bagel" "sub")))]
+
 There is a function @racket[map], which can apply a function to each
 item in a list.
 Why not use @racket[map] on our friend @racket[toaster]?
 
 @interact[
   (map toaster (list "bread" "bagel" "sub"))]
+
+
+@section{Building a snowman}
+
+Now we know enough things to build a snowman.
+Open a new file in DrRacket named "snowman.rkt".
+Make sure your definition includes the following, and then click run:
+
+@codeblock|{
+#lang racket
+(require pict)
+}|
+
+The most important ingredient for a snowman is, of course, a snowball.
+Previously we used a @racket[circle] and that seems close, but circles
+are transparent in the middle, so we should use a @racket[disk] instead.
+Let's make a disk 50 pixels high:
+
+@interact[(disk 50)]
+
+Oops... we probably want to specify a color for our snowman.
+Snow is usually white,@note{Of course, you can make your snowman
+@hyperlink["https://docs.racket-lang.org/draw/color-database___.html"]{a different color}
+if you prefer!}
+so we can try that by specifying the color as a keyword argument:
+
+@interact[(disk 50 #:color "white")]
+
+Now we need to stack them.
+Luckily the pict module comes with @racket[vc-append], which stands for
+"vertical center append".
+Well, we do want to stack things vertically, so let's try it!
+
+@interact[
+  (vc-append
+    (disk 50 #:color "white")
+    (disk 65 #:color "white")
+    (disk 80 #:color "white"))]
+
+That's a good start!
+Except maybe we could make it a bit cleaner if we had a @racketidfont{snowball}
+function.
+Let's write one:
+
+@interact[
+  (define (snowball size)
+    (disk size #:color "white"))
+  (vc-append
+    (snowball 50)
+    (snowball 65)
+    (snowball 80))]
+
+That @racket[snowball] function seems useful.
+Copy and paste it to your definitions area so you can keep it around.
+
+In fact, it would be even cleaner if we gave each of our snowballs
+names.
+The top snowball seems to be the head, the middle snowball seems to
+be the body, and the bottom snow ball seems to be the... butt?
+
+Update your definitions area so that it looks like this:
+
+@codeblock|{
+#lang racket
+(require pict)
+
+;; Makes a snowball
+(define (snowball size)
+  (disk size #:color "white"))
+
+;; Snowman components
+(define head
+  (snowball 50))
+
+(define body
+  (snowball 65))
+  
+(define butt
+  (snowball 80))
+
+;; Putting it all together
+(define snowman
+  (vc-append head body butt))}|
+
+@(examples #:eval my-evaluator
+           #:hidden #t
+  (define head
+    (snowball 50))
+  (define body
+    (snowball 65))
+  (define butt
+    (snowball 80))
+  (define snowman
+    (vc-append head body butt)))
+
+This is interesting... we've seen @racket[define] used before to define
+the functions @racket[toaster] and @racket[snowball].
+But now we are defining variables (names that map to values) that
+aren't functions.
+If you look carefully you'll notice that the function uses of define
+put parentheses around the first argument to @racket[define], whereas
+the simple variable uses of @racket[define] do not.
+
+We can now refer to these variables individually at the interaction area:
+
+@interact[head snowman]
+
+Unfortunately a snowman isn't a snowman without a face.
+How do we make a face?
+Well one oldschool way would be to make a text-based emoticon, like
+so:
+
+@interact[(text ":^)")]
+
+Plus, now it has a caret for a carrot nose!
+
+We can use @racket[cc-superimpose] (for "center center superimpose") to
+put it onto our head:
+
+@interact[(cc-superimpose head (text ":^)"))]
+
+Oops, that doesn't look right.
+It's too small, and it's turned the wrong way!
+The first argument to text is @racketidfont{content}, but
+@racket[text] can take up to three @emph{optional arguments}:
+@racketidfont{style}, @racketidfont{size}, and @racketidfont{angle}.
+
+Borrowing ideas from @racket[text]'s documentation, let's make it bold
+and change the size:
+
+@interact[(text ":^)" '(bold) 20)]
+
+Better.  But we still need to turn it.
+The @racket[text] documentation says that we need to specify
+@racketidfont{angle} in radians.
+I hear @racket[pi] has something to do with circles and radians.
+I wonder what happens if we use pi?
+
+@interact[(text ":^)" '(bold) 20 pi)]
+
+Oops, that turned fit all the way around.
+What if we just wanted to turn it halfway around?
+I guess that would be half of pi?
+
+@interact[(text ":^)" '(bold) 20 (* pi .5))]
+
+Gah!  That's halfway, but in the opposite direction, so let's
+try turning it... negative halfway?
+
+@interact[(text ":^)" '(bold) 20 (* pi -.5))]
+
+Whew!  That looks good.  Let's try putting it on the head:
+
+@interact[
+  (cc-superimpose 
+    (snowball 50)
+    (text ":^)" '(bold) 20 (* pi -.5)))]
+
+
