@@ -327,7 +327,7 @@ Well, we do want to stack things vertically, so let's try it!
 That's a good start!
 Except maybe we could make it a bit cleaner if we had a @racketidfont{snowball}
 function.
-Let's write one:
+Let's write one and give it one argument, @racketidfont{size}:
 
 @interact[
   (define (snowball size)
