@@ -612,7 +612,7 @@ what each part means.
         (snowball 65)
         ;; asterisks are acceptable buttons, right?
         (text "* * *" '(bold) 20 (* pi -.5)))
-      right-arm))
+      right-arm)))
 
 @;; Re-build the snowman
 @(examples #:eval my-evaluator
