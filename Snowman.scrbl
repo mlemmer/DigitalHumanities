@@ -634,7 +634,6 @@ Now let's see what our snowman looks like in the interaction area:
 @interact[snowman]
 
 Horray!  It works!
-Not the world's greatest snowman, but quite nice!
 
 @emph{@bold{Exercise for the reader:}
   You can keep improving your snowman!
