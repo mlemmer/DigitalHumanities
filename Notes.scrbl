@@ -11,12 +11,15 @@
 @title{Notes}
 
 @section{Margin notes and comments}
+Link to this section with
+ @secref["Blocks" #:doc '(lib "scribblings/scribble/scribble.scrbl")]
 
 @literal|{@margin-note}| places a note to the side @margin-note{like this}
 
 @bold{Comments:}  Since scribble is a markup language, you can include comments in the .scrbl file that do not render when the file is exported. Just type @literal|{@;}| and put curly brackets around the text you want hidden. This allows you to leave notes to yourself without publishing them. Now you see it ... @;{Now you don't} 
 
 @section{Footnotes}
+@secref["footnotes" #:doc '(lib "scriblib/scribblings/scriblib.scrbl")]
 
 This feature requires access to the scriblib/footnote library, so include that in the list of required libraries at the top of your page. 
 

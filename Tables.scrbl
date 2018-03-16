@@ -1,13 +1,18 @@
-#lang scribble/base
+#lang scribble/doc
 
 @(require scribble/html-properties
           scribble/latex-properties
           scribble/core
           scribble/sigplan
+          scribble/base
           scribble/manual
-          scriblib/autobib)
+          scriblib/autobib
+          scriblib/footnote
+          scriblib/figure)
 
 @title{Tables}
+See @secref["Blocks" #:doc '(lib "scribblings/scribble/scribble.scrbl")] 'tabular' in the @hyperlink["file:///usr/share/doc/racket/scribble/base.html#%28part._.Blocks%29"]{Scribble Guide}
+
 @literal|{@tabular}| allows you to create tables from a list of lists. 
 
 @codeblock|{@tabular[#:sep @hspace[1]

@@ -1,51 +1,60 @@
-#lang scribble/base
+#lang scribble/doc
 
 @(require scribble/html-properties
           scribble/latex-properties
           scribble/core
           scribble/sigplan
+          scribble/base
           scribble/manual
           scriblib/autobib
+          scriblib/footnote
           scriblib/figure)
 
 @title{Images}
+See @secref["images" #:doc '(lib "scribblings/scribble/scribble.scrbl")] in the @hyperlink["file:///usr/share/doc/racket/scribble/base.html#%28part._images%29"]{Scribble Guide}
 
 Entering images in-line is simple. Use @literal|{@image["filename.jpg"]}| to insert an image file into your document. The image file must be stored in the same directory/folder as your scribble file. If you want the image centered with your text, you can use @literal|{@centered{@image[filename.jpg]}}|
+
+The image will appear at the size of the image file. The size and format of your image will effect its placement in your document. If the image is too large to fit on the remaining space of the page below the text above it, it will shift to the next page. If you have nice, high-res images, that is great for research, but bad for your pdf or html output:
 
 @codeblock|{@image["KaranisKM3338_1.JPG"]}|
 @image["KaranisKM3338_1.JPG"]
 
-The image will appear at the size of the image file. There are a few ways to modify size. You can scale the image using your preferred image manipulation program:
+There are a few ways to modify size. The most stable method is to scale the image using your preferred image manipulation program. If you do this, remember to export the scaled image with a new file name --- You don't want to save over your original high-res image, and you want to be able to distinguish between the two files.
+
 @codeblock|{@centered{@image["KaranisKM3338_1scaled.JPG"]}}|
 @centered{@image["KaranisKM3338_1scaled.JPG"]}
 
-Or you could use CSS or LaTeX to scale the images. This requires more effort in coding, but it can be universally applied to all of the images you use so you don't have to manually re-size all 50+ images in your dissertation and you don't need to either scale the original image files or have double copies of all of your images. Setting up a CSS or LaTeX style sheet is outside the bounds of this tutorial, but I will cover how to incorporate it into your scribble file. First you need to first make a CSS/LaTeX stylesheet and store it in the same directory. Then you can define a function to apply the added style 
+Another method is to use CSS or LaTeX to scale the images. This requires more effort in coding, but it can be universally applied to all of the images you use so you don't have to manually re-size all 50+ images in your dissertation and you don't need to either scale the original image files or have double copies of all of your images. Setting up a CSS or LaTeX style sheet is outside the bounds of this tutorial, but I will cover how to incorporate it into your scribble file. First you need to first make a CSS/LaTeX stylesheet and store it in the same directory. Then you can define a function to apply the added style. 
 
-@;codeblock|{@(define (scaled-centered-image path . content)
-@;   (centered
-@;     (apply image 
-@;            #:style (make-style "width-constrained-image"
-@;                                (list (make-css-addition "extra-style.css")))
-@;            path content)))}|
+@codeblock|{@(define (scaled-centered-image path . content)
+   (centered
+     (apply image 
+            #:style (make-style "width-constrained-image"
+                                (list (make-css-addition "extra-style.css")))
+            path content)))}|
 
-@;(define (scaled-centered-image path . content)
-@;   (centered
-@;     (apply image 
-@;            #:style (make-style "width-constrained-image"
-@;                                (list (make-css-addition "extra-style.css")))
-@;            path content)))
+@(define (scaled-centered-image path . content)
+   (centered
+     (apply image 
+            #:style (make-style "width-constrained-image"
+                                (list (make-css-addition "extra-style.css")))
+            path content)))
 
 
 
-@;This function constrains the image to the width of the text in HTML and centers it. In order to apply it, call on the function you've defined above @literal|{@scaled-centered-image["filename.jpg"]}|
+This function constrains the image to the width of the text in HTML and centers it. In order to apply it, call on the function you've defined above @literal|{@scaled-centered-image["filename.jpg"]}|
 
-@;codeblock|{@scaled-centered-image["KaranisKM3338_1.JPG"]}|
+@codeblock|{@scaled-centered-image["KaranisKM3338_1.JPG"]}|
 
-@;scaled-centered-image["KaranisKM3338_1.JPG"]
+@;*This is not pictured in the pdf because the example is for CSS and therefore does not work with pdf export.
 
-@;Note that this is the same file as at the top of this section, the image file itself has not been altered.
+@scaled-centered-image["KaranisKM3338_1.JPG"]
+
+Note that this is the same file as at the top of this section, the image file itself has not been altered.
 
 @section{Figures}
+See @secref["figure" #:doc '(lib "scriblib/scribblings/scriblib.scrbl")] in the @hyperlink["https://docs.racket-lang.org/scriblib/figure.html"]{Racket Documentation}
 
 In an academic paper, you will likely have more than one image, and perhaps other types of figures such as tables and graphs. Additionally, your images and figures will need to be numbered and tagged in such a way that you can refer to them in your text. For this we use the @literal|{@figure}| function.
 
@@ -82,13 +91,8 @@ wooden weavers combs (@figure-ref["KaranisKM3352"])}|
 
 Given the arid conditions of Karanis, many textile implements of perishable or delicate materials survive that are rare elsewhere. These include loom weights of unfired clay (@Figure-ref["KaranisKM3338"]), or wooden weavers combs (@figure-ref["KaranisKM3352"]).
 
-@section{Figure List}
 
-@figure["KaranisKM3338" @elem{Loom weight from a house in Karanis, unfired clay, 1st through 5th centuries CE, Kelsey Museum of Art, KM3338. Image by Morgan Lemmer-Webber with permission of the Kelsey Museum of Art.}]{@image["KaranisKM3338_1.JPG"]}
+@figure["KaranisKM3338" @elem{Loom weight from a house in Karanis, unfired clay, 1st through 5th centuries CE, Kelsey Museum of Art, KM3338. Image by Morgan Lemmer-Webber with permission of the Kelsey Museum of Art.}]{@image["KaranisKM3338_1scaled.JPG"]}
 
-@figure["KaranisKM3352" @elem{Weavers comb from a house in Karanis, wood, 1st through 5th centuries CE, Kelsey Museum of Art, KM3352. Image by Morgan Lemmer-Webber with permission of the Kelsey Museum of Art.}]{@image["KaranisKM3352_1.JPG"]}
-
-@;figure["Spindle1" @elem{Spindle with blue wool roving and handspun yarn. Image by Morgan Lemmer-Webber.}]{@image["BlueWoolSpindle.jpg"]}
-
-@;figure["Loom1" @elem{Small-scale warp-weighted loom. Constructed by Morgan Lemmer-Webber out of modern materials, but works mechanically the same as ancient warp-weighted looms. Image by Morgan Lemmer-Webber with permission of the Kelsey Museum of Art.}]{@image["IMG_2437.JPG"]}
+@figure["KaranisKM3352" @elem{Weavers comb from a house in Karanis, wood, 1st through 5th centuries CE, Kelsey Museum of Art, KM3352. Image by Morgan Lemmer-Webber with permission of the Kelsey Museum of Art.}]{@image["KaranisKM3352_1scaled.JPG"]}
 
