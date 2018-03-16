@@ -28,7 +28,7 @@
 @;;; Main document
 @;;; =============
 
-@title{Fun in the snow with Racket}
+@title{Building a snowman with Racket}
 @author{Christopher Lemmer Webber}
 
 This tutorial introduces some basics of programming in Racket and then
@@ -99,7 +99,7 @@ Racket has all sorts of numbers, like integers and floating point:
 @codeblock|{
 42    ; integers
 98.6  ; floating point
-3/5   ; "rational" numbers
+3/5   ; rational numbers
 }|
 
 We can add and multiply them and divide them:
@@ -401,9 +401,12 @@ so:
 Plus, now it has a caret for a carrot nose!
 
 We can use @racket[cc-superimpose] (for "center center superimpose") to
-put it onto our head:
+see what it would look like on our head:
 
-@interact[(cc-superimpose head (text ":^)"))]
+@interact[
+(cc-superimpose
+  (snowball 50)
+  (text ":^)"))]
 
 Oops, that doesn't look right.
 It's too small, and it's turned the wrong way!
@@ -428,12 +431,12 @@ Oops, that turned fit all the way around.
 What if we just wanted to turn it halfway around?
 I guess that would be half of pi?
 
-@interact[(text ":^)" '(bold) 20 (* pi .5))]
+@interact[(text ":^)" '(bold) 20 (* pi 1/2))]
 
 Gah!  That's halfway, but in the opposite direction, so let's
 try turning it... negative halfway?
 
-@interact[(text ":^)" '(bold) 20 (* pi -.5))]
+@interact[(text ":^)" '(bold) 20 (* pi -1/2))]
 
 Whew!  That looks good.  Let's try putting it on the head:
 
@@ -442,4 +445,195 @@ Whew!  That looks good.  Let's try putting it on the head:
     (snowball 50)
     (text ":^)" '(bold) 20 (* pi -.5)))]
 
+Well this is a much better head than we had before.
+Let's switch back to the definitions window and replace our definition
+for @racket[head] to use it:
+
+@(examples
+  #:eval my-evaluator
+  #:label #f
+  #:no-prompt
+  (define head
+    (cc-superimpose 
+      (snowball 50)
+      (text ":^)" '(bold) 20 (* pi -.5)))))
+
+@;; Well, we aren't hitting "run" here, so we manually need to update
+@;; the snowman
+@(examples #:eval my-evaluator
+           #:hidden #t
+  (define snowman
+    (vc-append head body butt)))
+
+Now hit "run".
+Check in the interaction area.. did our head and our snowman update?
+
+@interact[
+  head
+  snowman]
+
+Now that we've figured out how to put rotated text on the head, we can
+apply that same idea to add some "buttons" on the snowman's body:
+
+@interact[
+  (text "* * *" '(bold) 20 (* pi -.5))
+  (cc-superimpose
+    (snowball 65)
+    (text "* * *" '(bold) 20 (* pi -.5)))]
+
+That looks pretty good.
+Let's update the definitions area to use this new body:
+
+@(examples
+  #:eval my-evaluator
+  #:label #f
+  #:no-prompt
+  (define body
+    (cc-superimpose
+      (snowball 65)
+      (text "* * *" '(bold) 20 (* pi -.5)))))
+
+@;; Update the snowman again
+@(examples #:eval my-evaluator
+           #:hidden #t
+  (define snowman
+    (vc-append head body butt)))
+
+@interact[snowman]
+
+@emph{@bold{Exercise for the reader:}
+Can you figure out how to make the buttons out of disks instead?
+Hint: spacing them apart is the tricky part, but read the documentation
+for @racket[vc-append] which can take an extra argument that can space
+them apart for you.}
+
+Our snowman is starting to look pretty good, but a snowman isn't a snowman
+without twig arms.
+The "Y" character looks kind of like a twig:
+
+@interact[(text "Y")]
+
+But that's way too small.  Let's make it bigger and bold:
+
+@interact[(text "Y" '(bold) 30)]
+
+We also need to turn it to the left:
+
+@interact[(text "Y" '(bold) 30 (* pi .5))]
+
+We're so close, but this isn't the right color!
+Brown would be better:
+
+@interact[
+  (colorize (text "Y" '(bold) 30 (* pi .5))
+            "brown")]
+
+But we also need a right arm.
+When we rotated the face we learned that if we wanted to turn the face
+to the right instead of the left, we needed to multiply @racket[pi] by
+a negative number instead.  So let's try that:
+
+@interact[
+  (colorize (text "Y" '(bold) 30 (* pi -.5))
+            "brown")]
+
+The code for making the left arm versus the right arm are exactly the
+same except for the amount we're multiplying by pi.
+Maybe we should try making a function that can make an arm for us, the
+same way we did for @racket{snowball}.
+Let's call it @racket{make-arm}, and it'll take one argument, the
+amount to rotate:
+
+@interact[
+  (define (make-arm rotate-amount)
+    (colorize (text "Y" '(bold) 30 (* pi rotate-amount))
+              "brown"))
+  (make-arm 0)
+  (make-arm 1)
+  (make-arm .5)
+  (make-arm -.5)]
+
+Great... so this function is useful and those last two look like our
+left and right arms.
+Let's move @racket{make-arm} to the definitions area and define our
+@racket{left-arm} and @racket{right-arm}, right above where we defined
+the @racket[body]:
+
+@codeblock|{
+  (define (make-arm rotate-amount)
+    (colorize (text "Y" '(bold) 30 (* pi rotate-amount))
+              "brown"))
+
+  (define left-arm
+    (make-arm .5))
+
+  (define right-arm
+    (make-arm -.5))}|
+
+@(examples
+  #:eval my-evaluator
+  #:hidden #t
+  (define (make-arm rotate-amount)
+    (colorize (text "Y" '(bold) 30 (* pi rotate-amount))
+              "brown"))
+  (define left-arm
+    (make-arm .5))
+  (define right-arm
+    (make-arm -.5)))
+
+Now we need to stick these stick-arms into the sides of our snowman.
+If @racket[vc-append] means "vertical center append", then it makes sense
+that @racket[hc-append] would mean "horizontal center append".
+That sounds like what we want, so let's test if we can modify our body
+definition to use it:
+
+@interact[
+(hc-append
+  left-arm
+  (cc-superimpose
+    (snowball 65)
+    (text "* * *" '(bold) 20 (* pi -.5)))
+  right-arm)]
+
+That looks right, though it's getting a bit hard to read.  Let's copy
+this to the definitions area but add some comments so we remember
+what each part means.
+
+@(examples
+  #:eval my-evaluator
+  #:label #f
+  #:no-prompt
+  (define body
+    ;; append the left arm, torso, and right arm horizontally
+    (hc-append
+      left-arm
+      ;; make a snowball for the torso and put buttons on it
+      (cc-superimpose
+        (snowball 65)
+        ;; asterisks are acceptable buttons, right?
+        (text "* * *" '(bold) 20 (* pi -.5)))
+      right-arm))
+
+@;; Re-build the snowman
+@(examples #:eval my-evaluator
+           #:hidden #t
+  (define snowman
+    (vc-append head body butt)))
+
+Hit "run".
+Now let's see what our snowman looks like in the interaction area:
+
+@interact[snowman]
+
+Horray!  It works!
+Not the world's greatest snowman, but quite nice!
+
+@emph{@bold{Exercise for the reader:}
+  You can keep improving your snowman!
+  For example, you could supply your snowman with a top hat made out of
+  @racket[filled-rectangle]s.
+  Or you could make a postcard by putting your snowman on a snowy
+  field with a sky and some "Happy Holidays" text.
+  You could even build a function that lets you customize the postcard's
+  message!}
 
