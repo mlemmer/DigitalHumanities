@@ -599,10 +599,21 @@ That looks right, though it's getting a bit hard to read.  Let's copy
 this to the definitions area but add some comments so we remember
 what each part means.
 
-@(examples
-  #:eval my-evaluator
-  #:label #f
-  #:no-prompt
+@codeblock|{
+(define body
+  ;; append the left arm, torso, and right arm horizontally
+  (hc-append
+    left-arm
+    ;; make a snowball for the torso and put buttons on it
+    (cc-superimpose
+      (snowball 65)
+      ;; asterisks are acceptable buttons, right?
+      (text "* * *" '(bold) 20 (* pi -.5)))
+    right-arm))}|
+
+@;; Re-build the snowman
+@(examples #:eval my-evaluator
+           #:hidden #t
   (define body
     ;; append the left arm, torso, and right arm horizontally
     (hc-append
@@ -612,11 +623,8 @@ what each part means.
         (snowball 65)
         ;; asterisks are acceptable buttons, right?
         (text "* * *" '(bold) 20 (* pi -.5)))
-      right-arm)))
+      right-arm))
 
-@;; Re-build the snowman
-@(examples #:eval my-evaluator
-           #:hidden #t
   (define snowman
     (vc-append head body butt)))
 
