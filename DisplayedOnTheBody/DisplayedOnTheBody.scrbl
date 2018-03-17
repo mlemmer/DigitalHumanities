@@ -112,7 +112,7 @@ Although the use of @italic{epinetra} fell exclusively in the realm of women, I 
 
 @(define bib-Allison2006
 (make-bib
- #:title     "Mapping for gender: Interpreting artifact distribution inside 1st and 2nd century A.D. forts in Roman Germany."
+ #:title     "\"Mapping for gender: Interpreting artifact distribution inside 1st and 2nd century A.D. forts in Roman Germany\""
  #:author    (authors "P.M. Allison")
  #:date      "2006"
  #:location  (journal-location "Archaeological Dialogues" #:pages '(1 20) #:number "1" #:volume "20")))
@@ -151,7 +151,7 @@ Although the use of @italic{epinetra} fell exclusively in the realm of women, I 
 
 @(define bib-Bundrick2008
 (make-bib
- #:title     "The Fabric of the City: Imagining Textile Production in Classical Athens."
+ #:title     "\"The Fabric of the City: Imagining Textile Production in Classical Athens\""
  #:author    (authors "Sheramy Bundrick")
  #:date      "2008"
  #:location (journal-location "Hesperia" #:pages '(283 334) #:number "2" #:volume "77")))
@@ -197,21 +197,21 @@ Although the use of @italic{epinetra} fell exclusively in the realm of women, I 
 
 @(define bib-Keuls1983
    (make-bib
-    #:title     "Attic Vase-Painting and the Home Textile Industry."
+    #:title     "\"Attic Vase-Painting and the Home Textile Industry.\""
     #:author    (authors "Eva C. Keuls") 
     #:date      "1983"
     #:location  (anthology-location "Ancient Greek Art" #:pages '(209 230) #:publisher "Madison: University of Wisconsin Press")))
 
 @(define bib-Keuls1984
 (make-bib
- #:title     "Male-Female Interaction in Fifth-Century Dionysiac Ritual as Shown in Attic Vase Painting"
+ #:title     "\"Male-Female Interaction in Fifth-Century Dionysiac Ritual as Shown in Attic Vase Painting\""
  #:author    (authors "Eva C. Keuls")
  #:date      "1984"
  #:location  (journal-location "ZPE" #:pages '(287 297) #:volume "55")))
 
 @(define bib-Keuls1993
 (make-bib
- #:title     "The Reign of the Phallus: Sexual Politics in Ancient Athens."
+ #:title     "\"The Reign of the Phallus: Sexual Politics in Ancient Athens.\""
  #:author    (authors "Eva C. Keuls")
  #:is-book?  "yes"
  #:date      "1993"
@@ -219,14 +219,14 @@ Although the use of @italic{epinetra} fell exclusively in the realm of women, I 
 
 @(define bib-Kissell1918
 (make-bib
- #:title     "Ancient Greek Yarn-Making."
+ #:title     "\"Ancient Greek Yarn-Making.\""
  #:author    (authors "Mary Lois Kissell")
  #:date      "1918"
  #:location (journal-location "Metropolitan Museum of Art Bulletin" #:pages '(235 237) #:number "11" #:volume "13")))
 
 @(define bib-Kouser2004
    (make-bib
-    #:title     "The World of Aphrodite in the Late Fifth Century B.C."
+    #:title     "\"The World of Aphrodite in the Late Fifth Century B.C.\""
     #:author    (authors "Rachel Kouser") 
     #:date      "2004"
     #:location  (anthology-location "Greek Vases, Images and Controversies: Proceedings of the Conference Sponsored by the Center for the Ancient Mediterranean at Columbia University, 23-24 March 2002, edited by Clemente Marconi" #:pages '(97 112) #:publisher "Leiden: Brill")))
@@ -249,14 +249,14 @@ Although the use of @italic{epinetra} fell exclusively in the realm of women, I 
 
 @(define bib-RobertsonBeard1991
    (make-bib
-    #:title     "Adopting an approach."
+    #:title     "\"Adopting an approach\""
     #:author    (authors "M. Robertson" "M. Beard") 
     #:date      "1991"
     #:location  (anthology-location "Looking at Greek Vases" #:pages '(1 36) #:publisher "Cambridge: Cambridge University Press")))
 
 @(define bib-Robinson1945
 (make-bib
- #:title     "A New Attic Onos or Epinetron."
+ #:title     "\"A New Attic Onos or Epinetron\""
  #:author    (authors "David M. Robinson")
  #:date      "1945"
  #:location  (journal-location "AJA" #:pages '(480 490) #:number "4" #:volume "49")))
@@ -288,7 +288,7 @@ Although the use of @italic{epinetra} fell exclusively in the realm of women, I 
 
 @element["newpage" ""]
 
-@section{}
+@section{Figures}
 
 @figure["1" @elem{Attic Red Figure Epinetron from Euboea, Eretria. Side A: Wedding Preparations, side B: Women and goddesses with Eros, Side C: Peleus and Thetis wrestling, Nerus and Nerids fleeing. Attributed to the Eretria Painter. 450-400 BC, Athens, National Museum, 1629, Beazley, 216971.}]{@image["Fig1.jpg"]}
 
