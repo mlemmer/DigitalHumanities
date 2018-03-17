@@ -38,5 +38,15 @@
  'next
  (item "Scribble is a friendly publishing language in Racket")
  'next
- ;; Morgan, continue here!
+ (item )
  )
+
+(slide
+ #:title "All kinds of free"
+ (item "English is ambiguous... free as in...")
+ 'next
+ (subitem "No cost?")
+ 'next
+ (subitem "Freedom?")
+ 'next
+ (item "Racket is both, but user feedom (free software, open source) is most important"))
