@@ -703,15 +703,14 @@ There are many resources, but here are some good starting points:
   @item{
     @hyperlink["https://docs.racket-lang.org/quick/"]{
       Quick: An Introduction to Racket with Pictures} --
-    This is a complimentary tutorial to this one in many ways but covers
-    a few more advanced topics but is still aimed at an introduction to
+    This is a complimentary tutorial to this one in many ways.
+    It covers a few more advanced topics while remaining fairly introductory to
     Racket.
-    It uses the same picture language as we used here.}
+    It uses the same picture language we used here.}
   @item{
     @hyperlink["https://docs.racket-lang.org/guide/index.html"]{
       The Racket Guide} --
-    A handy guide to all of Racket's core ideas!
-    Mostly friendly!}
+    A handy guide to all of Racket's core ideas!}
   @item{
     @hyperlink["https://docs.racket-lang.org/reference/index.html"]{
       The Racket Reference} --
@@ -731,10 +730,11 @@ There are many resources, but here are some good starting points:
     @hyperlink["http://www.ccs.neu.edu/home/matthias/HtDP2e/"]{
       How to Design Programs, Second Edition} --
     A complete textbook for learning to program using Racket, made for
-    universities.
+    the classroom.
     Teaches advanced topics without assuming prior programming knowledge.}]
 
 That isn't enough?  Can't stop learning?
+Here are some more advanced resources:
 
 @itemlist[
   @item{
