@@ -291,7 +291,16 @@ Why not use @racket[map] on our friend @racket[toaster]?
 Now we know enough things to build a snowman.
 Open a new file in DrRacket and @racketidfont{Save Definitions As...}
 "snowman.rkt".
-Make sure your definition includes the following, and then click run:
+Make sure your definition includes the following,
+@note{
+  By the way, we haven't described what @racket[require] means.
+  @racket[require] is a way to import other interesting "modules" or
+  "libraries" of code into our programs.
+  @racket[pict] is what lets us draw pictures in code, and there
+  are many other libraries that ship with Racket, as well as many more
+  @hyperlink["https://pkgs.racket-lang.org/"]{third party libraries}
+  that can be installed.}
+and then click run:
 
 @codeblock|{
 #lang racket
