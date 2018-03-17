@@ -688,3 +688,93 @@ At this point your code should look something like this:
 ;; Putting it all together
 (define snowman
   (vc-append head body butt))}|
+
+@section{Where to go from here}
+
+You've learned a lot about Racket!
+But there is much more you can learn, and one of the most important things
+you can do as a programmer is to learn to read documentation.
+One important thing to know is you can right-click on many definitions in
+the definition area in DrRacket and select @racketidfont{"View documentation for..."}
+
+There are many resources, but here are some good starting points:
+
+@itemlist[
+  @item{
+    @hyperlink["https://docs.racket-lang.org/quick/"]{
+      Quick: An Introduction to Racket with Pictures} --
+    This is a complimentary tutorial to this one in many ways but covers
+    a few more advanced topics but is still aimed at an introduction to
+    Racket.
+    It uses the same picture language as we used here.}
+  @item{
+    @hyperlink["https://docs.racket-lang.org/guide/index.html"]{
+      The Racket Guide} --
+    A handy guide to all of Racket's core ideas!
+    Mostly friendly!}
+  @item{
+    @hyperlink["https://docs.racket-lang.org/reference/index.html"]{
+      The Racket Reference} --
+    When you really want the details on how core tools in Racket work,
+    look here.}
+  @item{
+    @hyperlink["https://docs.racket-lang.org/continue/index.html"]{
+      Continue: Web Applications in Racket} --
+    Intermediate level tutorial where you learn to write web applications.}
+  @item{
+    @hyperlink["http://realmofracket.com/"]{
+      Realm of Racket} --
+    Learn to program Racket by making video games!
+    No prior programming experience required;
+    has the motto "For freshmen, by freshmen".}
+  @item{
+    @hyperlink["http://www.ccs.neu.edu/home/matthias/HtDP2e/"]{
+      How to Design Programs, Second Edition} --
+    A complete textbook for learning to program using Racket, made for
+    universities.
+    Teaches advanced topics without assuming prior programming knowledge.}]
+
+That isn't enough?  Can't stop learning?
+
+@itemlist[
+  @item{
+    @hyperlink["https://docs.racket-lang.org/more/index.html"]{
+      More: Systems Programming with Racket} --
+    Writing a web application wasn't enough for you?
+    Why not write a web @emph{server} in Racket?}
+  @item{
+    @hyperlink["https://mitpress.mit.edu/books/little-schemer"]{
+      The Little Schemer} --
+    A good book for getting comfortable with recursion and understanding
+    how programming languages work (but not for learning how to write a
+    "practical" everyday style of Scheme (Racket's main language is a kind of
+    Scheme, which is a kind of Lisp, which is a kind of programming language
+    with parentheses)).
+    Written in a question and answer form, funny, and builds up deep topics
+    fast.
+    By the end of it, you'll write a version of Scheme in Scheme!}
+  @item{
+    @hyperlink["https://mitpress.mit.edu/sicp/"]{
+      Structure and Interpretation of Computer Programs} --
+    What used to be MIT's "introductory" computer science book, but don't
+    let that fool you... it's one of the most advanced (and fun) programming
+    books around.
+    Learn what the "soul" of the computer is... you'll learn core ideas,
+    and eventually will even write your own compiler!
+    Some nice resources online for it, including this
+    @hyperlink["https://sarabander.github.io/sicp/html/"]{
+      very pretty HTML version}
+    and
+    @hyperlink["https://archive.org/details/SICP_4_ipod"]{
+      original lectures from the 1980s}
+    can be found online.}]
+
+See @hyperlink["https://racket-lang.org/"]{https://racket-lang.org/}
+for more information, including how to talk to Racket's community.
+Don't be afraid to reach out if you get stuck!
+
+Racket is a good programming language environment for everyone from
+beginners to experts.
+Don't get intimidated by how much there is to know or give up if you
+get stuck!
+Racket is for everyone, including you... @emph{yes you!}
