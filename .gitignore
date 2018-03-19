@@ -11,3 +11,10 @@ pict*.png
 /scribble.css
 /racket.css
 /footnote.css
+/figure.css
+/figure.js
+/sigplan.css
+export/
+/HowTo.tex
+/Snowman.tex
+/autobib.css
