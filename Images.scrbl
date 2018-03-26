@@ -34,12 +34,12 @@ Another method is to use CSS or LaTeX to scale the images. This requires more ef
                                 (list (make-css-addition "extra-style.css")))
             path content)))}|
 
-@(define (scaled-centered-image path . content)
-   (centered
-     (apply image 
-            #:style (make-style "width-constrained-image"
-                                (list (make-css-addition "extra-style.css")))
-            path content)))
+@;(define (scaled-centered-image path . content)
+@;   (centered
+@;     (apply image 
+@;            #:style (make-style "width-constrained-image"
+@;                                (list (make-css-addition "extra-style.css")))
+@;            path content)))
 
 
 
@@ -47,9 +47,9 @@ This function constrains the image to the width of the text in HTML and centers 
 
 @codeblock|{@scaled-centered-image["KaranisKM3338_1.JPG"]}|
 
-@;*This is not pictured in the pdf because the example is for CSS and therefore does not work with pdf export.
+*This is not pictured in the pdf because the example is for CSS and therefore does not work with pdf export.
 
-@scaled-centered-image["KaranisKM3338_1.JPG"]
+@;scaled-centered-image["KaranisKM3338_1.JPG"]
 
 Note that this is the same file as at the top of this section, the image file itself has not been altered.
 

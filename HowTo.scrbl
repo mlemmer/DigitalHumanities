@@ -16,23 +16,23 @@
 
 @abstract{This tutorial gives examples of the common functions and formatting tags you will need to write an academic paper using Dr. Racket and scribble. This document should be used as a reference guide when you are ready to set up your own academic paper.}
 
-This document itself is written in Scribble, and will be most useful to you if you look at both the scribble files (HowTo.scrbl, Basics.scrbl, DocumentStructure.scrbl, Lists.scrbl, Tags.scrbl, Links.scrbl, Tables.scrbl, Citations.scrbl, Images.scrbl, Export.scrbl) and the pdf (HowTo.pdf) or html output (HowTo.html) at the same time. You can find these documents on our git repository @hyperlink["https://github.com/mlemmer/DigitalHumanities"]{https://github.com/mlemmer/DigitalHumanities}.
+This document itself is written in Scribble, and will be most useful to you if you look at both the scribble files (HowTo.scrbl, Basics.scrbl, DocumentStructure.scrbl, Lists.scrbl, Tags.scrbl, Links.scrbl, Tables.scrbl, Citations.scrbl, Images.scrbl, Export.scrbl) and the pdf (HowTo.pdf) or html output (HowTo.html) at the same time. You can find these documents on our git repository @url{https://github.com/mlemmer/DigitalHumanities}.
 
 Both Racket and Scribble have wonderful documentation and tutorials available, see below for useful references. Often times if you are stuck and can't figure out how to write a function or debug your code on your own you can find an answer by simply googling it (be sure to include some combination of Racket/Scribble in your search because there are a lot of programming languages out there). Racket also has a thriving community of programmers, so you can post a question on the @hyperlink["https://groups.google.com/forum/#!forum/racket-users"]{Racket Users forum}. 
 
-Introduction to Racket with Pictures: @hyperlink["https://docs.racket-lang.org/quick/index.html"]{https://docs.racket-lang.org/quick/index.html}
+Introduction to Racket with Pictures: @url{https://docs.racket-lang.org/quick/index.html}
 
-Web Applications in Racket: @hyperlink["https://docs.racket-lang.org/continue/index.html"]{https://docs.racket-lang.org/continue/index.html}
+Web Applications in Racket: @url{https://docs.racket-lang.org/continue/index.html}
 
-Racket Guide: @hyperlink["https://docs.racket-lang.org/guide/index.html"]{https://docs.racket-lang.org/guide/index.html}
+Racket Guide: @url{https://docs.racket-lang.org/guide/index.html}
 
-Racket Reference: @hyperlink["https://docs.racket-lang.org/reference/index.html"]{https://docs.racket-lang.org/reference/index.html}
+Racket Reference: @url{https://docs.racket-lang.org/reference/index.html}
 
-Racket Documentation: @hyperlink["https://docs.racket-lang.org/continue/index.html"]{https://docs.racket-lang.org/continue/index.html}
+Racket Documentation: @url{https://docs.racket-lang.org/continue/index.html}
 
-Scribble tutorial: @hyperlink["https://docs.racket-lang.org/scribble/getting-started.html"]{"https://docs.racket-lang.org/scribble/getting-started.html"}
+Scribble tutorial: @url{"https://docs.racket-lang.org/scribble/getting-started.html"}
 
-Scribble Manual: @hyperlink["https://docs.racket-lang.org/scribble/"]{https://docs.racket-lang.org/scribble/}
+Scribble Manual: @url{https://docs.racket-lang.org/scribble/}
 
 @section{License}
 
@@ -48,6 +48,7 @@ All code for this project is licensed under the GNU Lesser General Public Licens
 @include-section["Links.scrbl"]
 @include-section["Tables.scrbl"]
 @include-section["Citations.scrbl"]
+@include-section["QuickReference.scrbl"]
 @include-section["Images.scrbl"]
 
 
