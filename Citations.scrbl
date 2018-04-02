@@ -15,7 +15,7 @@
 @section{Citations}
 See @secref["Bibliography" #:doc '(lib "scribblings/scribble/scribble.scrbl")] in the @hyperlink["file:///usr/share/doc/racket/scribble/Bibliography.html"]{Scribble Guide}
 
-The formatting for the bibliography in scribble may look intimidating, but really you are filling in the same general fields you would in any citation manager. This feature requires access to the @racket{scriblib/autobib} library, so include that in the list of required libraries at the top of your page. Citations use keyword arguments @racket{(#:title #:url etc)} that allow you to construct your citation with the components you need. For ease of data entry, you can just copy and paste the from the templates below for each citation. However, if you do so remember to @bold{remove any keyword-arguments you do not use} because a blank argument will result in an error message.
+The formatting for the bibliography in scribble may look intimidating, but really you are filling in the same general fields you would in any citation manager. This feature requires access to the @racket{scriblib/autobib} library, so include that in the list of required libraries at the top of your page. Citations use keyword arguments (@racket[#:title], @racket[#:url], etc) that allow you to construct your citation with the components you need. For ease of data entry, you can just copy and paste the from the templates below for each citation. However, if you do so remember to @bold{remove any keyword-arguments you do not use} because a blank argument will result in an error message.
 
 @bold{Basic components of a citation:}
 
